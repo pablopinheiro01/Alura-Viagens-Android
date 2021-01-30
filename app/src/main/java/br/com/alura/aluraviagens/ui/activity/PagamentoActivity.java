@@ -5,6 +5,7 @@ import br.com.alura.R;
 import br.com.alura.aluraviagens.model.Pacote;
 import br.com.alura.aluraviagens.util.MoedaUtil;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 
@@ -23,6 +24,9 @@ public class PagamentoActivity extends AppCompatActivity {
         Pacote pacoteSaoPaulo = new Pacote("Sao Paulo", "sao_paulo_sp", 2, new BigDecimal(245.5));
 
         mostraPreco(pacoteSaoPaulo);
+
+        Intent intent = new Intent(this, ResumoCompraActivity.class);
+        startActivity(intent);
 
     }
 

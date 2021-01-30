@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AluraViagens">
-        <activity android:name=".aluraviagens.ui.activity.PagamentoActivity"></activity>
+        <activity android:name=".aluraviagens.ui.activity.ResumoCompraActivity"></activity>
+        <activity android:name=".aluraviagens.ui.activity.PagamentoActivity" />
         <activity android:name=".aluraviagens.ui.activity.ResumoPacoteActivity" />
         <activity android:name=".aluraviagens.ui.activity.ListaPacotesActivity">
             <intent-filter>
