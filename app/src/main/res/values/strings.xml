@@ -6,7 +6,7 @@
     <string name="preco_final">Preço Final</string>
     <string name="realizar_pagamento">Realizar pagamento</string>
     <string name="imagem_do_pacote">Imagem do pacote</string>
-    <string name="MASCARA_PARA_NOME_NO_CARTAO_CARACTERES_ACEITOS">qwertyuiopasdfghjklçzxcvbnm QWERTYUIOPASDFGHJKLÇZXCVBNM</string>
+    <string name="MASCARA_PARA_NOME_NO_CARTAO_CARACTERES_ACEITOS">qwertyuiopasdfghjklçzxcvbnm QWERTYUIOPASDFGHJKLÇZXCVBNM\u0020</string>
     <string name="digite_as_informa_es_do_cart_o_de_cr_dito_que_voce_quer_utilizar_para_o_pagamento">Digite as informações do cartão de crédito que voce quer utilizar para o pagamento.</string>
     <string name="valor_da_compra">Valor da compra:</string>
     <string name="numero_cartao">Número do cartão</string>
