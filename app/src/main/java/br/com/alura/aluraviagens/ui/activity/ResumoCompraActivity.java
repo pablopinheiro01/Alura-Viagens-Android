@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import java.math.BigDecimal;
 
+import static br.com.alura.aluraviagens.ui.activity.PacoteActivityConstantes.CHAVE_PACOTE;
+
 public class ResumoCompraActivity extends AppCompatActivity {
 
     public static final String RESUMO_DA_COMPRA = "Resumo da compra";
@@ -24,16 +26,26 @@ public class ResumoCompraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_resumo_compra);
         setTitle(RESUMO_DA_COMPRA);
 
-        Pacote pacoteSaoPaulo = new Pacote("Sao Paulo", "sao_paulo_sp", 2, new BigDecimal(245.5));
+        carregaPacoteRecebido();
+    }
 
-        mostraImagem(pacoteSaoPaulo);
+    private void carregaPacoteRecebido() {
+        if(getIntent().hasExtra(CHAVE_PACOTE)){
+            Pacote pacote = (Pacote) getIntent().getSerializableExtra(CHAVE_PACOTE);
 
-        mostraDestino(pacoteSaoPaulo);
+            inicializaCampos(pacote);
 
-        mostraDataViagem(pacoteSaoPaulo);
+        }
+    }
 
-        mostraValorPago(pacoteSaoPaulo);
+    private void inicializaCampos(Pacote pacote) {
+        mostraImagem(pacote);
 
+        mostraDestino(pacote);
+
+        mostraDataViagem(pacote);
+
+        mostraValorPago(pacote);
     }
 
     private void mostraValorPago(Pacote pacoteSaoPaulo) {

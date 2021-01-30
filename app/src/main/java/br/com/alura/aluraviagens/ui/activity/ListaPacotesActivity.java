@@ -9,9 +9,12 @@ import br.com.alura.aluraviagens.ui.adapter.ListaPacotesAdapter;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.List;
+
+import static br.com.alura.aluraviagens.ui.activity.PacoteActivityConstantes.CHAVE_PACOTE;
 
 public class ListaPacotesActivity extends AppCompatActivity {
 
@@ -25,15 +28,27 @@ public class ListaPacotesActivity extends AppCompatActivity {
 
         configuraLista();
 
-        Intent intent = new Intent(this, ResumoPacoteActivity.class);
-        startActivity(intent);
-
     }
 
     private void configuraLista() {
         List<Pacote> pacotes = new PacoteDAO().lista();
-        ListView listaDePacotes = findViewById(R.id.lista_pacotes_listview);
+        //dentro da classe anonima eu so posso acessar objetos fixos por isso defini o final
+        final ListView listaDePacotes = findViewById(R.id.lista_pacotes_listview);
         listaDePacotes.setAdapter(new ListaPacotesAdapter(pacotes,this ));
+        listaDePacotes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                vaiParaResumoPacote(position, pacotes);
+            }
+        });
+    }
+
+    private void vaiParaResumoPacote(int position, List<Pacote> pacotes) {
+        Intent intent = new Intent(ListaPacotesActivity.this, ResumoPacoteActivity.class);
+        Pacote pacote = pacotes.get(position);
+        //o pacote tem que ser Serializible e nao devemos esquecer essa implementacao
+        intent.putExtra(CHAVE_PACOTE, pacote);
+        startActivity(intent);
     }
 
 
